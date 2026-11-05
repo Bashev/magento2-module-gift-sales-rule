@@ -23,10 +23,10 @@ $giftRules = $block->getGiftRules();
     $childBlock = $block->getChildBlock('checkout.cart.gift-rules.rule');
     ?>
     <div class="block free-gift" id="block-free-gift"
-         data-mage-init='{"collapsible":{"openedState": "active", "saveState": false}}'>
+         data-mage-init='{"collapsible":{"openedState": "active", "active": true, "saveState": false}}'>
         <div class="title" data-role="title">
             <strong id="block-free-gift-heading" role="heading" aria-level="2"><?= /* @escapeNotVerified */
-                __ ('Get free gift !') ?></strong>
+                __('Get free gift !') ?></strong>
         </div>
         <div class="content" data-role="content" aria-labelledby="block-free-gift-heading">
             <?php foreach ($giftRules as $rule) : ?>

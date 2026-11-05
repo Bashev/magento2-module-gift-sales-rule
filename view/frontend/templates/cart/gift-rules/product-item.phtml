@@ -19,7 +19,18 @@ $selectedQty = $block->getProductQty();
 ?>
 <li class="item product product-item">
     <div class="product-item-info freegift-product-item<?php if ($selectedQty) : ?> active<?php endif; ?>">
-        <span class="product photo product-item-photo"><?= $block->getImage($product, 'category_page_grid')->toHtml() ?></span>
+<?php
+// The catalog image template sizes its container with a style keyed by product id
+// (.product-image-container-<id>). Once the gift is in the cart, the same product id also
+// renders there as a small thumbnail, and this popup's later, larger style won: the gift line
+// in the cart grew to the popup size. A popup-only class keeps the two styles apart.
+$imageHtml = str_replace(
+    'product-image-container-' . (int) $product->getId(),
+    'product-image-container-gift-' . (int) $product->getId(),
+    $block->getImage($product, 'category_page_grid')->toHtml()
+);
+?>
+        <span class="product photo product-item-photo"><?= /* @noEscape */ $imageHtml ?></span>
         <div class="product details product-item-details" data-product-id="<?= (int) $product->getId() ?>">
             <strong class="product name product-item-name"><?= $block->escapeHtml($product->getName()) ?></strong>
             <?= $block->getProductDetailsHtml($product) ?>

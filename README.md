@@ -1,6 +1,21 @@
 Gift Sales Rule [![Build Status](https://travis-ci.org/Smile-SA/magento2-module-gift-sales-rule.svg?branch=master)](https://travis-ci.org/Smile-SA/magento2-module-gift-sales-rule)
 =====================================
 
+> **Modified version.** This is a derivative work of
+> [Smile-SA/magento2-module-gift-sales-rule](https://github.com/Smile-SA/magento2-module-gift-sales-rule)
+> (version 2.0.1), modified by Webcode (https://webcode.bg) and distributed under the same
+> Open Software License 3.0 (see `LICENCE.md`). The original copyright and licence notices are kept
+> in every file. Changes against the original work:
+>
+> * `applyRules()` passes the coupon codes on to `applyRule()` (TypeError on coupons with Magento 2.4.9).
+> * Storefront: translations (bg_BG, de_DE, el_GR, ro_RO, tr_TR), the gift image in the cart keeps its
+>   normal size, the "Get free gift" block is open by default.
+> * The gift is added for a parent priced by its children (dynamic-price bundle): `RulesApplier::applyRule()`.
+> * No gift is added while the quote is still loading (`trigger_recollect`), which ended in
+>   "Infinite loop detected": `Observer\CollectGiftRule`.
+> * Saving a cart price rule without the gift extension attribute no longer fails:
+>   `Plugin\Model\RuleRepositoryPlugin::afterSave()`.
+
 ## What is magento2-module-gift-sales-rule Magento 2 Module?
 
 This module provides 2 new actions to Magento cart price rule feature to :

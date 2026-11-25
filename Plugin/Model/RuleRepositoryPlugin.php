@@ -111,8 +111,10 @@ class RuleRepositoryPlugin
     public function afterSave(RuleRepositoryInterface $subject, RuleInterface $rule)
     {
         $extensionAttributes = $rule->getExtensionAttributes();
-        $giftRule = $extensionAttributes->getGiftRule();
-        $this->giftRuleRepository->save($giftRule);
+        $giftRule = $extensionAttributes?->getGiftRule();
+        if ($giftRule instanceof GiftRuleInterface) {
+            $this->giftRuleRepository->save($giftRule);
+        }
 
         return $rule;
     }

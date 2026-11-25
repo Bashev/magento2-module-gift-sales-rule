@@ -3,7 +3,7 @@ Gift Sales Rule [![Build Status](https://travis-ci.org/Smile-SA/magento2-module-
 
 > **Modified version.** This is a derivative work of
 > [Smile-SA/magento2-module-gift-sales-rule](https://github.com/Smile-SA/magento2-module-gift-sales-rule)
-> (version 2.0.1), modified by Webcode (https://webcode.bg) and distributed under the same
+> (version 2.0.2), modified by Webcode (https://webcode.bg) and distributed under the same
 > Open Software License 3.0 (see `LICENCE.md`). The original copyright and licence notices are kept
 > in every file. Changes against the original work:
 >
